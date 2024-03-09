@@ -1,0 +1,18 @@
+[package]
+name = "wsl-browser"
+version = "1.0.0"
+authors = ["David Wildasin <dragonmaus@posteo.net>"]
+edition = "2021"
+description = "Open a browser on the host system with translated paths"
+repository = "http://git.dragonma.us/rust/wsl-browser"
+license = "BSD-3-Clause-Clear"
+categories = ["command-line-utilities"]
+publish = false
+
+[dependencies]
+getopt = "1"
+url = "2.5"
+wslpath = "0.0.2"
+
+[dependencies.program]
+git = "git://git.dragonma.us/rust/program"
