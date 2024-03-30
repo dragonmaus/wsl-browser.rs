@@ -1,3 +1,5 @@
+extern crate getopt;
+
 use getopt::Opt;
 
 program::main!("wsl-browser");
@@ -16,6 +18,7 @@ fn program(name: &str) -> program::Result {
     let mut args = program::args();
     let mut opts = getopt::Parser::new(&args, "h");
 
+    #[allow(clippy::never_loop)]
     loop {
         match opts.next().transpose()? {
             None => break,

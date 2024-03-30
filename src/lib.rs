@@ -1,3 +1,5 @@
+extern crate url;
+
 use std::{
     env, error, fs,
     io::{Error, ErrorKind},
