@@ -32,6 +32,10 @@ fn fixup_url(url: Url) -> Result<String, Box<dyn error::Error>> {
     Ok(if url.scheme() == "file" {
         let mut path = wslpath::wsl_to_windows(url.path())?;
 
+        if path.starts_with("//wsl.localhost/") {
+            // some versions of wslpath return "wsl.localhost" instead of "wsl$"
+            path = path.replacen(".localhost", "$", 1);
+        }
         if path.starts_with("//wsl$/") {
             // firefox requires an extra / here for some reason
             path.insert(0, '/');
